@@ -44,6 +44,20 @@ test("init is idempotent: a second run creates nothing", () => {
   assert.match(stdout, /0 created, 9 already present/);
 });
 
+test("codex init installs wiki-review skill and review guidance", () => {
+  const dir = tmp();
+  const { status } = cli(["init", "--root", dir, "--agent", "codex", "--no-pr-history"]);
+  assert.equal(status, 0);
+
+  const skill = fs.readFileSync(path.join(dir, ".agents", "skills", "wiki-review", "SKILL.md"), "utf8");
+  assert.match(skill, /Test and coverage report/);
+  assert.match(skill, /Ledger status/);
+
+  const agents = fs.readFileSync(path.join(dir, "AGENTS.md"), "utf8");
+  assert.match(agents, /## Review guidelines/);
+  assert.match(agents, /wiki-review/);
+});
+
 test("health passes on a freshly initialised wiki", () => {
   const dir = tmp();
   cli(["init", "--root", dir, "--no-pr-history"]);

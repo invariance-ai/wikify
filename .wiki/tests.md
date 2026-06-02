@@ -30,8 +30,8 @@ Last run: local — **✅ passing**
 
 | Metric | Count |
 | --- | --- |
-| Total tests | 22 |
-| Passing | 22 |
+| Total tests | 23 |
+| Passing | 23 |
 | Failing | 0 |
 | Skipped | 0 |
 | Todo | 0 |
