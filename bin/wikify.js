@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-import "../dist/wikify.js";
+import { main } from "../dist/wikify.js";
+main();
