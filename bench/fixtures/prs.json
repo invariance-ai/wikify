@@ -1,0 +1,4 @@
+{
+  "_comment": "End-to-end benchmark manifest: real merged PRs with ground-truth findings. Empty by default — populate with { repo, pr, expected:[{file,category,message}] } entries to enable. Requires `gh` auth to fetch diffs.",
+  "cases": []
+}

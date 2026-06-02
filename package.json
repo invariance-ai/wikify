@@ -14,6 +14,8 @@
   ],
   "scripts": {
     "build": "tsc",
+    "test": "npm run build && node --test",
+    "bench": "npm run build && node bench/run.js",
     "check": "tmp=$(mktemp -d) && npm run build && node bin/wikify.js --help && node bin/wikify.js init --root \"$tmp\" --no-pr-history && node bin/wikify.js health --root \"$tmp\"",
     "prepublishOnly": "tsc"
   },

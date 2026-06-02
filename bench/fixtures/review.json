@@ -1,0 +1,28 @@
+{
+  "_comment": "Seeded-bug fixtures for the review-quality benchmark. Each case is a code sample with known planted issues. A finding counts as a true positive when its category matches and its line is within ±2 of the expected line. Add cases freely; keep expectations honest.",
+  "cases": [
+    {
+      "file": "auth.js",
+      "code": "function check(user) {\n  if (user.token == null) return false;\n  const cmd = child_process.exec('ls ' + user.dir);\n  return true;\n}\n",
+      "expected": [
+        { "line": 2, "category": "correctness", "message": "loose null comparison" },
+        { "line": 3, "category": "security", "message": "shell exec with user input" }
+      ]
+    },
+    {
+      "file": "calc.js",
+      "code": "function total(items) {\n  var sum = 0;\n  for (var i = 0; i <= items.length; i++) {\n    sum += items[i].price;\n  }\n  return sum;\n}\n",
+      "expected": [
+        { "line": 3, "category": "correctness", "message": "off-by-one: <= length iterates past the end" }
+      ]
+    },
+    {
+      "file": "render.js",
+      "code": "function run(src) {\n  // TODO: sanitize\n  return eval(src);\n}\n",
+      "expected": [
+        { "line": 3, "category": "security", "message": "eval of untrusted input" },
+        { "line": 2, "category": "clarity", "message": "unresolved TODO" }
+      ]
+    }
+  ]
+}
