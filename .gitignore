@@ -3,3 +3,6 @@ npm-debug.log*
 .DS_Store
 *.tgz
 .wiki/_site/
+
+# compiled output (built on publish via prepublishOnly; shipped via package "files")
+dist/

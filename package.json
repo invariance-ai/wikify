@@ -8,11 +8,14 @@
   },
   "files": [
     "bin",
+    "dist",
     "install.sh",
     "README.md"
   ],
   "scripts": {
-    "check": "tmp=$(mktemp -d) && node bin/wikify.js --help && node bin/wikify.js init --root \"$tmp\" --no-pr-history && node bin/wikify.js health --root \"$tmp\""
+    "build": "tsc",
+    "check": "tmp=$(mktemp -d) && npm run build && node bin/wikify.js --help && node bin/wikify.js init --root \"$tmp\" --no-pr-history && node bin/wikify.js health --root \"$tmp\"",
+    "prepublishOnly": "tsc"
   },
   "keywords": [
     "wiki",
@@ -25,5 +28,9 @@
   "license": "MIT",
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
   }
 }
