@@ -1,0 +1,29 @@
+{
+  "name": "@invariance/wikify",
+  "version": "0.1.0",
+  "description": "Repo-native memory for humans and AI coding agents.",
+  "type": "module",
+  "bin": {
+    "wikify": "bin/wikify.js"
+  },
+  "files": [
+    "bin",
+    "install.sh",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "tmp=$(mktemp -d) && node bin/wikify.js --help && node bin/wikify.js init --root \"$tmp\" --no-pr-history && node bin/wikify.js health --root \"$tmp\""
+  },
+  "keywords": [
+    "wiki",
+    "repo-memory",
+    "ai-agents",
+    "claude-code",
+    "codex",
+    "cursor"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
